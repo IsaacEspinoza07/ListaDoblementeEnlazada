@@ -3,37 +3,37 @@
 
 /*
 == ATRIBUTOS ==
-    - [ ] Tamaño de la lista
-    - [ ] Puntero al ultimo (hasta la derecha en los dibujitos)
-    - [ ] Puntero al primero (hasta la izquierda en los dibujutos
+    - [x] Tamaño de la lista
+    - [x] Puntero al ultimo (hasta la derecha en los dibujitos)
+    - [x] Puntero al primero (hasta la izquierda en los dibujutos
 
 == CONSTRUCTORES ==
-    - [ ] Por default
-    - [ ] Constructor de copias
-    - [ ] Destructor (importante, pa no dejar memoria por ahi regada)
-    - [ ] Operador =
+    - [x] Por default
+    - [x] Constructor de copias
+    - [x] Destructor (importante, pa no dejar memoria por ahi regada)
+    - [x] Operador =
 
 == MÉTODOS ==
 
         === Agregar ===
-    - [ ] Agregar un elemento al inicio de la lista
-    - [ ] Agregar un elemento al final de la lista
-    - [ ] Agregar un elemento en cierta posición (o indice)
+    - [x] Agregar un elemento al inicio de la lista
+    - [x] Agregar un elemento al final de la lista
+    - [x] Agregar un elemento en cierta posición (o indice)
 
         === Eliminar ===
-    - [ ] Eliminar el elemento del frente
-    - [ ] Eliminar el elemento del final
-    - [ ] Eliminar el elemento de cierta posición (o índice)
+    - [x] Eliminar el elemento del frente
+    - [x] Eliminar el elemento del final
+    - [x] Eliminar el elemento de cierta posición (o índice)
 
         === Otros ===
     - [ ] Buscar un valor (creo que es el boleano que dice si está o no)
     - [ ] Buscar la posicion del valor en la lista (La primera ocurrencia)
-    - [ ] Conocer si esta vacia la lista o no
-    - [ ] Obtener el primer elemento de la lista
-    - [ ] Obtener el ultimo elemento de la lista
+    - [x] Conocer si esta vacia la lista o no
+    - [x] Obtener el primer elemento de la lista
+    - [x] Obtener el ultimo elemento de la lista
     - [ ] Obtener el elemento en cierta posición (o indice) de la lista.
-    - [ ] Vaciar la lista
-    - [ ] Imprimir la lista (De primero a ultimo: izq a derecha)
+    - [x] Vaciar la lista
+    - [x] Imprimir la lista (De primero a ultimo: izq a derecha)
     - [ ] Imprimir la lista alreves (De ultimo a primero: derecha a izq)
 
         === Sobrecargar op ===
@@ -60,18 +60,49 @@ template<typename T>
 class Lista{
 public:
 
+    // Constructores
+    Lista();
+    ~Lista();
+    Lista(const Lista &l);
+    Lista &operator=(const Lista<T> &l);
+
+
+    // Agregar
+    void AgregarAlPrincipio(T valor);
+    void AgregarAlFinal(T valor);
+    void Agregar(T valor,int indice);
+
+    // Eliminar
+    void EliminarAlPrincipio();
+    void EliminarAlFinal();
+    void Eliminar(int indice);
+    void Vaciar();
+
+    bool EstaVacia();
+    void Imprimir();
+
+    T ObtenerPrimero();
+    T ObtenerUltimo();
+    int ObtenerTam();
+
+    // PRUEBAS
+    void infoElem(int n);
 
 private:
     int num_elem;
 
     struct Elemento{
         T valor;
-        Elemento *siguiente;
         Elemento *anterior;
+        Elemento *siguiente;
 
-    }*frente, *ultimo;
+        Elemento(T n, Elemento *ant = nullptr, Elemento *sig = nullptr);
+
+    }*primero, *ultimo;
 
 
 };
+
+#include "Lista.tpp"
 
 #endif // LISTA_HPP_INCLUDED

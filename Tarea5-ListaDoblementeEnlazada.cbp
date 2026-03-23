@@ -33,6 +33,7 @@
 			<Add option="-fexceptions" />
 		</Compiler>
 		<Unit filename="Lista.hpp" />
+		<Unit filename="Lista.tpp" />
 		<Unit filename="main.cpp" />
 		<Extensions />
 	</Project>
