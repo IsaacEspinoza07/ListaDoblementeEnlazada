@@ -162,7 +162,7 @@ void Lista<T>::Eliminar(int indice)
     if(indice < 0 || indice >= num_elem) throw "Fuera de \241ndice";
 
     if(indice == 0) EliminarAlPrincipio();
-    else if(indice == num_elem) EliminarAlFinal();
+    else if(indice == num_elem-1) EliminarAlFinal();
     else{
         // Realizamos el recorrido dependiendo de la ubicacion del indice
         Elemento *aux;
@@ -242,6 +242,73 @@ int Lista<T>::ObtenerTam()
     return num_elem;
 
 }
+
+// =============================== //
+template<typename T>
+T Lista<T>::ObtenerElem(int pos)
+{
+    if(pos < 0 || pos >= num_elem) throw "Fuera de \241ndice";
+    Elemento *aux = primero;
+    for(int i = 0; i < pos; ++i){
+        aux = aux->siguiente;
+    }
+    return aux->valor;
+}
+
+// =============================== //
+template<typename T>
+T &Lista<T>::operator[](int indice)
+{
+    if(indice < 0 || indice >= num_elem) throw "Fuera de \241ndice";
+
+    Elemento *aux = primero;
+    for(int i = 0; i < indice; ++i){
+        aux = aux->siguiente;
+    }
+    return aux->valor;
+}
+
+// =============================== //
+
+template<typename T>
+const T &Lista<T>::operator[](int indice) const
+{
+    if(indice < 0 || indice >= num_elem) throw "Fuera de \241ndice";
+
+    Elemento *aux = primero;
+    for(int i = 0; i < indice; ++i){
+        aux = aux->siguiente;
+    }
+    return aux->valor;
+}
+
+// =============================== //
+
+template<typename T>
+bool Lista<T>::EstaValor(T valor)
+{
+    Elemento *aux = primero;
+    for(int i = 0; i < num_elem; ++i){
+        if(aux->valor == valor) return true;
+        aux = aux->siguiente;
+    }
+    return false;
+}
+
+// =============================== //
+template<typename T>
+int Lista<T>::BuscarPos(T valor)
+{
+    if(EstaVacia()) throw "La lista est\240 vac\241a";
+
+    Elemento *aux = primero;
+    for(int i = 0; i < num_elem; ++i){
+        if(aux->valor == valor) return i;
+        aux = aux->siguiente;
+    }
+    return -1;
+}
+
 
 // ============= PRUEBAS/DEBUG ============= //
 template<typename T>

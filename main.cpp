@@ -26,6 +26,12 @@ int main()
         l.Eliminar(3);
         l.Imprimir();
 
+        cout << "El elemento en \'6\' hay: " << l.ObtenerElem(7) << endl;
+
+        cout <<"Elemento en pos 2: " << l[2] << endl;
+
+        l.Imprimir();
+
 
 
 

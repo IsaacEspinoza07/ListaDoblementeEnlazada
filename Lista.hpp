@@ -26,20 +26,20 @@
     - [x] Eliminar el elemento de cierta posición (o índice)
 
         === Otros ===
-    - [ ] Buscar un valor (creo que es el boleano que dice si está o no)
-    - [ ] Buscar la posicion del valor en la lista (La primera ocurrencia)
+    - [x] Buscar un valor (creo que es el boleano que dice si está o no)
+    - [x] Buscar la posicion del valor en la lista (La primera ocurrencia)
     - [x] Conocer si esta vacia la lista o no
     - [x] Obtener el primer elemento de la lista
     - [x] Obtener el ultimo elemento de la lista
-    - [ ] Obtener el elemento en cierta posición (o indice) de la lista.
+    - [x] Obtener el elemento en cierta posición (o indice) de la lista.
     - [x] Vaciar la lista
     - [x] Imprimir la lista (De primero a ultimo: izq a derecha)
     - [ ] Imprimir la lista alreves (De ultimo a primero: derecha a izq)
 
         === Sobrecargar op ===
-    - [ ] Acceder a un elemento de la lista usando []
-    - [ ] [] para modificar un elemento
-    - [ ] [] para Obtener un elemento
+    - [x] Acceder a un elemento de la lista usando []
+    - [x] [] para modificar un elemento
+    - [x] [] para Obtener un elemento
 
         === Otras indicaciones ===
     - [ ] Eliminar más especificos:
@@ -83,7 +83,14 @@ public:
 
     T ObtenerPrimero();
     T ObtenerUltimo();
+    T ObtenerElem(int pos);
     int ObtenerTam();
+
+    // Busqueda de valores
+    T& operator[](int indice); // L-value, escritura.
+    const T &operator[](int indice) const; // R-value, lectura (por el const).
+    bool EstaValor(T valor);
+    int BuscarPos(T valor);
 
     // PRUEBAS
     void infoElem(int n);
