@@ -46,9 +46,13 @@
         - [x] Un eliminar que borre toda ocurrencia de un valor
         - [x] Un eliminar que borre todo elemento que cumpla cierta condicion
               (recibira un puntero a funcion obviously para la condicion)
+<<<<<<< HEAD
+        - [ ] Elimina todo elemento repetido (solo dejar la primera ocurrencia)
+=======
         - [x] Elimina todo elemento repetido (solo dejar una ocurrencia {no indica cual, tonses PREGUNTAR!!!})
+>>>>>>> b6607b9f72b609d0672739439bbe3479dcb89397
 
-    - [ ] Intercambiar una lista con otra (este tampoco... sepa la bola que sea, PREGUNTAR!!!!!!)
+    - [ ] Intercambiar una lista con otra (nomas cambiar los punteros de "primero y ultimo")
     - [ ] Transferir elementos de una lista a otra:
         - [ ] Los elementos desde una posicion hasta otra posicion (o desde un índice a otro)
         - [ ] Los elementos a partir de cierta posicion (o índice)
@@ -135,6 +139,8 @@ private:
 
     }*primero, *ultimo;
 };
+
+
 
 #include "Lista.tpp"
 

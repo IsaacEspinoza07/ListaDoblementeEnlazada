@@ -1,0 +1,94 @@
+#include <iostream>
+#include "Lista.hpp"
+
+using namespace std;
+
+int main()
+{
+
+    try{
+    // ================ PROGRAMA =================== //
+        Lista<int> l;
+
+        for(int i = 1; i <= 30; ++i){
+            l.AgregarAlFinal(i);
+        }
+        l.Imprimir(); cout << endl;
+
+
+        l.EliminarAlPrincipio();
+        l.Imprimir();
+
+        l.EliminarAlFinal();
+        l.Imprimir();
+
+        cout << "\nBorrando en indice 3\n";
+        l.Eliminar(3);
+        l.Imprimir();
+<<<<<<< HEAD
+
+        cout << "El elemento en el indice \'6\' es: " << l.ObtenerElem(6) << endl;
+=======
+        l.ImprimirAlReves();
+        cout << "El elemento en \'6\' hay: " << l.ObtenerElem(7) << endl;
+>>>>>>> b6607b9f72b609d0672739439bbe3479dcb89397
+
+        cout <<"Elemento en pos 2: " << l[2] << endl;
+
+        l.Imprimir();
+        l.EliminarCondicion(MenorOIgual<int>, 18);
+        l.Imprimir();
+<<<<<<< HEAD
+
+        l.EliminarCondicion(EsPrimo);
+
+        cout << endl; l.Imprimir();
+
+
+
+=======
+
+        Lista<int> l2;
+
+        l2.AgregarAlFinal(3);
+        l2.AgregarAlFinal(2);
+        l2.AgregarAlFinal(4);
+        l2.AgregarAlFinal(2);
+        l2.AgregarAlFinal(5);
+        l2.AgregarAlFinal(2);
+        l2.AgregarAlFinal(6);
+        l2.AgregarAlFinal(2);
+        l2.AgregarAlFinal(3);
+        cout << endl;
+        l2.Imprimir();
+>>>>>>> b6607b9f72b609d0672739439bbe3479dcb89397
+
+        l2.EliminarOcurrenciaValor(2);
+        l2.EliminarOcurrenciaValor(3);
+        cout << endl;
+        l2.Imprimir();
+
+        l2.AgregarAlFinal(3);
+        l2.AgregarAlFinal(2);
+        l2.AgregarAlFinal(4);
+        l2.AgregarAlFinal(2);
+        l2.AgregarAlFinal(5);
+        l2.AgregarAlFinal(2);
+        l2.AgregarAlFinal(6);
+        l2.AgregarAlFinal(2);
+        l2.AgregarAlFinal(3);
+
+        l2.EliminarRepetidos();
+        cout << endl;
+        l2.Imprimir();
+
+
+
+    // =========================================== //
+    }catch(const char* error){
+        cerr << "Error: " << error << endl;
+    }catch(...){
+        cerr << "Ocurrio un error inesperado..." << endl;
+    }
+    return 0;
+}

@@ -1,13 +1,14 @@
 # depslib dependency file v1.0
-1774327336 source:/home/isaac07/Proyectos/cpp/Tarea5-ListaDoblementeEnlazada/main.cpp
+1774328033 source:/home/isaac07/Proyectos/cpp/Tarea5-ListaDoblementeEnlazada/main.cpp
 	<iostream>
 	"Lista.hpp"
 
-1774327471 /home/isaac07/Proyectos/cpp/Tarea5-ListaDoblementeEnlazada/Lista.hpp
+1774327785 /home/isaac07/Proyectos/cpp/Tarea5-ListaDoblementeEnlazada/Lista.hpp
 	"Lista.tpp"
 
-1774326716 /home/isaac07/Proyectos/cpp/Tarea5-ListaDoblementeEnlazada/Lista.tpp
+1774328122 /home/isaac07/Proyectos/cpp/Tarea5-ListaDoblementeEnlazada/Lista.tpp
 	<iostream>
+	<exception>
 	"Lista.hpp"
 	"Condiciones.hpp"
 

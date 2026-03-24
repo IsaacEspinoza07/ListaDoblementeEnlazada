@@ -134,7 +134,6 @@ void Lista<T>::EliminarAlPrincipio()
     }else{
         Elemento *aux = primero;
         primero = primero->siguiente;
-        primero->anterior = nullptr;
         delete aux;
     }
     --num_elem;
@@ -152,7 +151,6 @@ void Lista<T>::EliminarAlFinal()
     }else {
         Elemento *aux = ultimo;
         ultimo = ultimo->anterior;
-        ultimo->siguiente = nullptr;
         delete aux;
     }
     --num_elem;
@@ -209,9 +207,35 @@ void Lista<T>::EliminarOcurrenciaValor(T valor)
 
 // =============================== //
 template<typename T>
+void Lista<T>::EliminarCondicion(bool (*Condicion)(T, T), T b)
+{
+    if(EstaVacia()) throw "La lista est\242 vaci\241";
+
+    Elemento *aux = primero;
+    while(aux != nullptr){
+        Elemento *siguiente = aux->siguiente;
+
+        if(Condicion(aux->valor,b)){
+            if(aux == primero) EliminarAlPrincipio();
+            else if(aux == ultimo) EliminarAlFinal();
+            else{
+                aux->anterior->siguiente = aux->siguiente;
+                aux->siguiente->anterior = aux->anterior;
+                delete aux;
+                --num_elem;
+            }
+
+        }
+        aux = siguiente;
+    }
+
+}
+
+// =============================== //
+template<typename T>
 void Lista<T>::EliminarRepetidos()
 {
-    if(EstaVacia()) throw "La lista est\240 vac\241a.";
+    if(EstaVacia()) throw ListaVacia();
     Elemento *auxiliar = primero;
     int elemento_auxiliar = 0;
     while(auxiliar != nullptr){
@@ -232,6 +256,7 @@ void Lista<T>::EliminarRepetidos()
         ++elemento_auxiliar;
     }
 
+<<<<<<< HEAD
 }
 
 // =============================== //
@@ -260,8 +285,7 @@ void Lista<T>::EliminarCondicion(bool (*Condicion)(T, T), T b)
 
 }
 
-
-// Eliminar pero para con nuevos métodos unarios
+// Sobrecargar pa hacer cosas bien perronas
 template<typename T>
 void Lista<T>::EliminarCondicion(bool (*Condicion)(T))
 {
@@ -269,7 +293,7 @@ void Lista<T>::EliminarCondicion(bool (*Condicion)(T))
     while(aux != nullptr){
         Elemento *siguiente = aux->siguiente;
         if(Condicion(aux->valor)){
-            if(aux == primero)     EliminarAlPrincipio();
+            if(aux == primero) EliminarAlPrincipio();
             else if(aux == ultimo) EliminarAlFinal();
             else{
                 aux->anterior->siguiente = aux->siguiente;
@@ -277,9 +301,13 @@ void Lista<T>::EliminarCondicion(bool (*Condicion)(T))
                 delete aux;
                 --num_elem;
             }
+
         }
         aux = siguiente;
     }
+
+=======
+>>>>>>> b6607b9f72b609d0672739439bbe3479dcb89397
 }
 
 // =============================== //

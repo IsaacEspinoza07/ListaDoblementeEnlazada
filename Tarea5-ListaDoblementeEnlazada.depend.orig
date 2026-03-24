@@ -1,0 +1,45 @@
+<<<<<<< HEAD
+# depslib dependency file v1.0
+1774327336 source:/home/isaac07/Proyectos/cpp/Tarea5-ListaDoblementeEnlazada/main.cpp
+	<iostream>
+	"Lista.hpp"
+
+1774327471 /home/isaac07/Proyectos/cpp/Tarea5-ListaDoblementeEnlazada/Lista.hpp
+	"Lista.tpp"
+
+1774326716 /home/isaac07/Proyectos/cpp/Tarea5-ListaDoblementeEnlazada/Lista.tpp
+	<iostream>
+	"Lista.hpp"
+	"Condiciones.hpp"
+
+1774327214 /home/isaac07/Proyectos/cpp/Tarea5-ListaDoblementeEnlazada/Condiciones.hpp
+	"Condiciones.tpp"
+
+1774327383 /home/isaac07/Proyectos/cpp/Tarea5-ListaDoblementeEnlazada/Condiciones.tpp
+
+=======
+# depslib dependency file v1.0
+1774285007 source:/home/isaac07/Proyectos/cpp/Tarea5-ListaDoblementeEnlazada/main.cpp
+	<iostream>
+	"Lista.hpp"
+
+1774285019 /home/isaac07/Proyectos/cpp/Tarea5-ListaDoblementeEnlazada/Lista.hpp
+	"Lista.tpp"
+
+1774285122 /home/isaac07/Proyectos/cpp/Tarea5-ListaDoblementeEnlazada/Lista.tpp
+	<iostream>
+	"Lista.hpp"
+
+1774314270 source:c:\users\legal\onedrive\desktop\trabajos uni\visual studio code\estructura de datos\listadoblementeenlazada-main\main.cpp
+	<iostream>
+	"Lista.hpp"
+
+1774319992 c:\users\legal\onedrive\desktop\trabajos uni\visual studio code\estructura de datos\listadoblementeenlazada-main\lista.hpp
+	"Lista.tpp"
+
+1774319992 c:\users\legal\onedrive\desktop\trabajos uni\visual studio code\estructura de datos\listadoblementeenlazada-main\lista.tpp
+	<iostream>
+	<exception>
+	"Lista.hpp"
+
+>>>>>>> b6607b9f72b609d0672739439bbe3479dcb89397
