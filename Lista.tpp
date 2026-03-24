@@ -184,6 +184,51 @@ void Lista<T>::Eliminar(int indice)
     }
 }
 
+// =============================== //
+template<typename T>
+void Lista<T>::EliminarOcurrenciaValor(T valor)
+{
+    if(EstaVacia()) throw "La lista est\240 vac\241a.";
+    Elemento *aux = primero;
+    int elemento_encontrado = 0;
+    while(aux != nullptr){
+        if(aux->valor == valor){
+            Eliminar(elemento_encontrado);
+            break;
+        }
+        aux = aux->siguiente;
+        ++elemento_encontrado;
+    }
+    if(elemento_encontrado != num_elem) EliminarOcurrenciaValor(valor);
+
+}
+
+// =============================== //
+template<typename T>
+void Lista<T>::EliminarRepetidos()
+{
+    if(EstaVacia()) throw "La lista est\240 vac\241a.";
+    Elemento *auxiliar = primero;
+    int elemento_auxiliar = 0;
+    while(auxiliar != nullptr){
+        Elemento *viajero = auxiliar->siguiente;
+        int elemento_viajero = elemento_auxiliar+1;
+        while(viajero != nullptr){
+            if(viajero->valor == auxiliar->valor){
+                Elemento *Siguiente = viajero->siguiente;
+                Eliminar(elemento_viajero);
+                viajero = Siguiente;
+            }
+            else{
+                viajero = viajero->siguiente;
+                ++elemento_viajero;
+            }
+        }
+        auxiliar = auxiliar->siguiente;
+        ++elemento_auxiliar;
+    }
+
+}
 
 // =============================== //
 template<typename T>
@@ -214,6 +259,17 @@ void Lista<T>::Imprimir()
     }
     cout << "\b\b \n";
 
+}
+
+template<typename T>
+void Lista<T>::ImprimirAlReves()
+{
+    Elemento *explorador = ultimo;
+    for(int i = num_elem-1; i >= 0; --i){
+        cout << explorador->valor << ", ";
+        explorador = explorador->anterior;
+    }
+    cout << "\b\b \n";
 }
 
 // =============================== //

@@ -34,7 +34,7 @@
     - [x] Obtener el elemento en cierta posición (o indice) de la lista.
     - [x] Vaciar la lista
     - [x] Imprimir la lista (De primero a ultimo: izq a derecha)
-    - [ ] Imprimir la lista alreves (De ultimo a primero: derecha a izq)
+    - [x] Imprimir la lista alreves (De ultimo a primero: derecha a izq)
 
         === Sobrecargar op ===
     - [x] Acceder a un elemento de la lista usando []
@@ -43,7 +43,7 @@
 
         === Otras indicaciones ===
     - [ ] Eliminar más especificos:
-        - [ ] Un eliminar que borre toda ocurrencia de un valor
+        - [x] Un eliminar que borre toda ocurrencia de un valor
         - [ ] Un eliminar que borre todo elemento que cumpla cierta condicion
               (recibira un puntero a funcion obviously para la condicion)
         - [ ] Elimina todo elemento repetido (solo dejar una ocurrencia {no indica cual, tonses PREGUNTAR!!!})
@@ -80,6 +80,7 @@ public:
 
     bool EstaVacia();
     void Imprimir();
+    void ImprimirAlReves();
 
     T ObtenerPrimero();
     T ObtenerUltimo();
@@ -91,6 +92,11 @@ public:
     const T &operator[](int indice) const; // R-value, lectura (por el const).
     bool EstaValor(T valor);
     int BuscarPos(T valor);
+
+    void EliminarOcurrenciaValor(T valor);
+    //void EliminarCondicion(bool (*Condicion)(T));
+    void EliminarRepetidos();
+
 
     // PRUEBAS
     void infoElem(int n);
@@ -106,9 +112,11 @@ private:
         Elemento(T n, Elemento *ant = nullptr, Elemento *sig = nullptr);
 
     }*primero, *ultimo;
-
-
 };
+
+//bool EsPar(T valor);
+//bool IndicePar(T valor);
+//bool IndiceImpar(T valor);
 
 #include "Lista.tpp"
 
