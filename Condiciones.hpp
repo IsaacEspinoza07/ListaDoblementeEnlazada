@@ -19,6 +19,19 @@ bool Igual(T a, T b);
 template<typename T>
 bool Distinto(T a, T b);
 
+bool EsPar(int a);
+
+bool EsImpar(int a);
+
+template<typename T>
+bool EsPositivo(T a);
+
+template<typename T>
+bool EsNegativo(T a);
+
+bool EsPrimo(int a);
+
+
 #include "Condiciones.tpp"
 
 #endif // CONDICIONES_HPP_INCLUDED

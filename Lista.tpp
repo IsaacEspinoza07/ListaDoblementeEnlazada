@@ -259,6 +259,28 @@ void Lista<T>::EliminarCondicion(bool (*Condicion)(T, T), T b)
 
 }
 
+// Sobrecargar pa hacer cosas bien perronas
+template<typename T>
+void Lista<T>::EliminarCondicion(bool (*Condicion)(T))
+{
+    Elemento *aux = primero;
+    while(aux != nullptr){
+        Elemento *siguiente = aux->siguiente;
+        if(Condicion(aux->valor)){
+            if(aux == primero) EliminarAlPrincipio();
+            else if(aux == ultimo) EliminarAlFinal();
+            else{
+                aux->anterior->siguiente = aux->siguiente;
+                aux->siguiente->anterior = aux->anterior;
+                delete aux;
+                --num_elem;
+            }
+
+        }
+        aux = siguiente;
+    }
+
+}
 
 // =============================== //
 template<typename T>

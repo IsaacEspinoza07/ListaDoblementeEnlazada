@@ -10,8 +10,8 @@ int main()
     // ================ PROGRAMA =================== //
         Lista<int> l;
 
-        for(int i = 1; i <= 15; ++i){
-            l.Agregar(2*i,i-1);
+        for(int i = 1; i <= 30; ++i){
+            l.AgregarAlFinal(i);
         }
         l.Imprimir(); cout << endl;
 
@@ -26,13 +26,15 @@ int main()
         l.Eliminar(3);
         l.Imprimir();
 
-        cout << "El elemento en \'6\' hay: " << l.ObtenerElem(7) << endl;
+        cout << "El elemento en el indice \'6\' es: " << l.ObtenerElem(6) << endl;
 
         cout <<"Elemento en pos 2: " << l[2] << endl;
 
         l.Imprimir();
-        l.EliminarCondicion(MenorOIgual<int>, 18);
-        l.Imprimir();
+
+        l.EliminarCondicion(EsPrimo);
+
+        cout << endl; l.Imprimir();
 
 
 

@@ -44,11 +44,11 @@
         === Otras indicaciones ===
     - [ ] Eliminar más especificos:
         - [x] Un eliminar que borre toda ocurrencia de un valor
-        - [ ] Un eliminar que borre todo elemento que cumpla cierta condicion
+        - [x] Un eliminar que borre todo elemento que cumpla cierta condicion
               (recibira un puntero a funcion obviously para la condicion)
-        - [ ] Elimina todo elemento repetido (solo dejar una ocurrencia {no indica cual, tonses PREGUNTAR!!!})
+        - [ ] Elimina todo elemento repetido (solo dejar la primera ocurrencia)
 
-    - [ ] Intercambiar una lista con otra (este tampoco... sepa la bola que sea, PREGUNTAR!!!!!!)
+    - [ ] Intercambiar una lista con otra (nomas cambiar los punteros de "primero y ultimo")
     - [ ] Transferir elementos de una lista a otra:
         - [ ] Los elementos desde una posicion hasta otra posicion (o desde un índice a otro)
         - [ ] Los elementos a partir de cierta posicion (o índice)
@@ -95,6 +95,8 @@ public:
 
     void EliminarOcurrenciaValor(T valor);
     void EliminarCondicion(bool (*Condicion)(T, T),T b);
+    void EliminarCondicion(bool (*Condicion)(T));
+
     void EliminarRepetidos();
 
 
