@@ -31,6 +31,8 @@ int main()
         cout <<"Elemento en pos 2: " << l[2] << endl;
 
         l.Imprimir();
+        l.EliminarCondicion(MenorOIgual<int>, 18);
+        l.Imprimir();
 
 
 

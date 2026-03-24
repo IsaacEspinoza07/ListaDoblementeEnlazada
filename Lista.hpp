@@ -94,7 +94,7 @@ public:
     int BuscarPos(T valor);
 
     void EliminarOcurrenciaValor(T valor);
-    //void EliminarCondicion(bool (*Condicion)(T));
+    void EliminarCondicion(bool (*Condicion)(T, T),T b);
     void EliminarRepetidos();
 
 
@@ -113,10 +113,6 @@ private:
 
     }*primero, *ultimo;
 };
-
-//bool EsPar(T valor);
-//bool IndicePar(T valor);
-//bool IndiceImpar(T valor);
 
 #include "Lista.tpp"
 

@@ -1,5 +1,6 @@
 #include <iostream>
 #include "Lista.hpp"
+#include "Condiciones.hpp"
 
 using std::cout, std::endl;
 
@@ -132,6 +133,7 @@ void Lista<T>::EliminarAlPrincipio()
     }else{
         Elemento *aux = primero;
         primero = primero->siguiente;
+        primero->anterior = nullptr;
         delete aux;
     }
     --num_elem;
@@ -149,6 +151,7 @@ void Lista<T>::EliminarAlFinal()
     }else {
         Elemento *aux = ultimo;
         ultimo = ultimo->anterior;
+        ultimo->siguiente = nullptr;
         delete aux;
     }
     --num_elem;
@@ -229,6 +232,33 @@ void Lista<T>::EliminarRepetidos()
     }
 
 }
+
+// =============================== //
+template<typename T>
+void Lista<T>::EliminarCondicion(bool (*Condicion)(T, T), T b)
+{
+    if(EstaVacia()) throw "La lista est\242 vaci\241";
+
+    Elemento *aux = primero;
+    while(aux != nullptr){
+        Elemento *siguiente = aux->siguiente;
+
+        if(Condicion(aux->valor,b)){
+            if(aux == primero) EliminarAlPrincipio();
+            else if(aux == ultimo) EliminarAlFinal();
+            else{
+                aux->anterior->siguiente = aux->siguiente;
+                aux->siguiente->anterior = aux->anterior;
+                delete aux;
+                --num_elem;
+            }
+
+        }
+        aux = siguiente;
+    }
+
+}
+
 
 // =============================== //
 template<typename T>
