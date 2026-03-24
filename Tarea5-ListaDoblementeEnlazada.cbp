@@ -33,10 +33,7 @@
 			<Add option="-fexceptions" />
 		</Compiler>
 		<Unit filename="Condiciones.hpp" />
-		<Unit filename="Condiciones.tpp">
-			<Option compile="1" />
-			<Option link="1" />
-		</Unit>
+		<Unit filename="Condiciones.tpp" />
 		<Unit filename="Lista.hpp" />
 		<Unit filename="Lista.tpp" />
 		<Unit filename="main.cpp" />

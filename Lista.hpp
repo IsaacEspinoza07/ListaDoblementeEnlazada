@@ -42,11 +42,11 @@
     - [x] [] para Obtener un elemento
 
         === Otras indicaciones ===
-    - [ ] Eliminar más especificos:
+    - [x] Eliminar más especificos:
         - [x] Un eliminar que borre toda ocurrencia de un valor
-        - [ ] Un eliminar que borre todo elemento que cumpla cierta condicion
+        - [x] Un eliminar que borre todo elemento que cumpla cierta condicion
               (recibira un puntero a funcion obviously para la condicion)
-        - [ ] Elimina todo elemento repetido (solo dejar una ocurrencia {no indica cual, tonses PREGUNTAR!!!})
+        - [x] Elimina todo elemento repetido (solo dejar una ocurrencia {no indica cual, tonses PREGUNTAR!!!})
 
     - [ ] Intercambiar una lista con otra (este tampoco... sepa la bola que sea, PREGUNTAR!!!!!!)
     - [ ] Transferir elementos de una lista a otra:
@@ -101,6 +101,26 @@ public:
     // PRUEBAS
     void infoElem(int n);
 
+    class ListaVacia : public std::exception
+    {
+        public:
+            ListaVacia() noexcept;
+            virtual const char* what() const noexcept;
+
+        private:
+            const char* mensaje;
+    } ;
+
+    class IndiceExcedente : public std::exception
+    {
+        public:
+            IndiceExcedente() noexcept;
+            virtual const char* what() const noexcept;
+
+        private:
+            const char* mensaje;
+    };
+
 private:
     int num_elem;
 
@@ -113,6 +133,8 @@ private:
 
     }*primero, *ultimo;
 };
+
+
 
 #include "Lista.tpp"
 

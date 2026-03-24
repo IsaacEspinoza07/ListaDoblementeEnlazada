@@ -1,4 +1,5 @@
 #include <iostream>
+#include <exception>
 #include "Lista.hpp"
 #include "Condiciones.hpp"
 
@@ -93,7 +94,7 @@ void Lista<T>::AgregarAlFinal(T valor)
 template<typename T>
 void Lista<T>::Agregar(T valor,int indice)
 {
-    if(indice < 0 || indice > num_elem) throw "Fuera de indice";
+    if(indice < 0 || indice > num_elem) throw IndiceExcedente();
     if(indice == 0) AgregarAlPrincipio(valor);
     else if(indice == num_elem) AgregarAlFinal(valor);
     else{
@@ -125,7 +126,7 @@ void Lista<T>::Agregar(T valor,int indice)
 template<typename T>
 void Lista<T>::EliminarAlPrincipio()
 {
-    if(EstaVacia()) throw "La lista est\240 vac\241a.";
+    if(EstaVacia()) throw ListaVacia();
     if(num_elem == 1){
         delete primero;
         primero = nullptr;
@@ -133,7 +134,6 @@ void Lista<T>::EliminarAlPrincipio()
     }else{
         Elemento *aux = primero;
         primero = primero->siguiente;
-        primero->anterior = nullptr;
         delete aux;
     }
     --num_elem;
@@ -143,7 +143,7 @@ void Lista<T>::EliminarAlPrincipio()
 template<typename T>
 void Lista<T>::EliminarAlFinal()
 {
-    if(EstaVacia()) throw "La lista est\240 vac\241a.";
+    if(EstaVacia()) throw ListaVacia();
     if(num_elem == 1){
         delete ultimo;
         primero = nullptr;
@@ -151,7 +151,6 @@ void Lista<T>::EliminarAlFinal()
     }else {
         Elemento *aux = ultimo;
         ultimo = ultimo->anterior;
-        ultimo->siguiente = nullptr;
         delete aux;
     }
     --num_elem;
@@ -161,8 +160,8 @@ void Lista<T>::EliminarAlFinal()
 template<typename T>
 void Lista<T>::Eliminar(int indice)
 {
-    if(EstaVacia()) throw "La lista est\240 vac\241a.";
-    if(indice < 0 || indice >= num_elem) throw "Fuera de \241ndice";
+    if(EstaVacia()) throw ListaVacia();
+    if(indice < 0 || indice >= num_elem) throw IndiceExcedente();
 
     if(indice == 0) EliminarAlPrincipio();
     else if(indice == num_elem-1) EliminarAlFinal();
@@ -191,7 +190,7 @@ void Lista<T>::Eliminar(int indice)
 template<typename T>
 void Lista<T>::EliminarOcurrenciaValor(T valor)
 {
-    if(EstaVacia()) throw "La lista est\240 vac\241a.";
+    if(EstaVacia()) throw ListaVacia();
     Elemento *aux = primero;
     int elemento_encontrado = 0;
     while(aux != nullptr){
@@ -203,33 +202,6 @@ void Lista<T>::EliminarOcurrenciaValor(T valor)
         ++elemento_encontrado;
     }
     if(elemento_encontrado != num_elem) EliminarOcurrenciaValor(valor);
-
-}
-
-// =============================== //
-template<typename T>
-void Lista<T>::EliminarRepetidos()
-{
-    if(EstaVacia()) throw "La lista est\240 vac\241a.";
-    Elemento *auxiliar = primero;
-    int elemento_auxiliar = 0;
-    while(auxiliar != nullptr){
-        Elemento *viajero = auxiliar->siguiente;
-        int elemento_viajero = elemento_auxiliar+1;
-        while(viajero != nullptr){
-            if(viajero->valor == auxiliar->valor){
-                Elemento *Siguiente = viajero->siguiente;
-                Eliminar(elemento_viajero);
-                viajero = Siguiente;
-            }
-            else{
-                viajero = viajero->siguiente;
-                ++elemento_viajero;
-            }
-        }
-        auxiliar = auxiliar->siguiente;
-        ++elemento_auxiliar;
-    }
 
 }
 
@@ -259,6 +231,32 @@ void Lista<T>::EliminarCondicion(bool (*Condicion)(T, T), T b)
 
 }
 
+// =============================== //
+template<typename T>
+void Lista<T>::EliminarRepetidos()
+{
+    if(EstaVacia()) throw ListaVacia();
+    Elemento *auxiliar = primero;
+    int elemento_auxiliar = 0;
+    while(auxiliar != nullptr){
+        Elemento *viajero = auxiliar->siguiente;
+        int elemento_viajero = elemento_auxiliar+1;
+        while(viajero != nullptr){
+            if(viajero->valor == auxiliar->valor){
+                Elemento *Siguiente = viajero->siguiente;
+                Eliminar(elemento_viajero);
+                viajero = Siguiente;
+            }
+            else{
+                viajero = viajero->siguiente;
+                ++elemento_viajero;
+            }
+        }
+        auxiliar = auxiliar->siguiente;
+        ++elemento_auxiliar;
+    }
+
+}
 
 // =============================== //
 template<typename T>
@@ -306,7 +304,7 @@ void Lista<T>::ImprimirAlReves()
 template<typename T>
 T Lista<T>::ObtenerPrimero()
 {
-    if(EstaVacia()) throw "La lista esta vacia";
+    if(EstaVacia()) throw ListaVacia();
     return primero->valor;
 }
 
@@ -315,7 +313,7 @@ T Lista<T>::ObtenerPrimero()
 template<typename T>
 T Lista<T>::ObtenerUltimo()
 {
-    if(EstaVacia()) throw "La lista esta vacia";
+    if(EstaVacia()) throw ListaVacia();
     return ultimo->valor;
 
 }
@@ -333,7 +331,7 @@ int Lista<T>::ObtenerTam()
 template<typename T>
 T Lista<T>::ObtenerElem(int pos)
 {
-    if(pos < 0 || pos >= num_elem) throw "Fuera de \241ndice";
+    if(pos < 0 || pos >= num_elem) throw IndiceExcedente();
     Elemento *aux = primero;
     for(int i = 0; i < pos; ++i){
         aux = aux->siguiente;
@@ -345,7 +343,7 @@ T Lista<T>::ObtenerElem(int pos)
 template<typename T>
 T &Lista<T>::operator[](int indice)
 {
-    if(indice < 0 || indice >= num_elem) throw "Fuera de \241ndice";
+    if(indice < 0 || indice >= num_elem) throw IndiceExcedente();
 
     Elemento *aux = primero;
     for(int i = 0; i < indice; ++i){
@@ -359,7 +357,7 @@ T &Lista<T>::operator[](int indice)
 template<typename T>
 const T &Lista<T>::operator[](int indice) const
 {
-    if(indice < 0 || indice >= num_elem) throw "Fuera de \241ndice";
+    if(indice < 0 || indice >= num_elem) throw IndiceExcedente();
 
     Elemento *aux = primero;
     for(int i = 0; i < indice; ++i){
@@ -385,7 +383,7 @@ bool Lista<T>::EstaValor(T valor)
 template<typename T>
 int Lista<T>::BuscarPos(T valor)
 {
-    if(EstaVacia()) throw "La lista est\240 vac\241a";
+    if(EstaVacia()) throw ListaVacia();
 
     Elemento *aux = primero;
     for(int i = 0; i < num_elem; ++i){
@@ -408,4 +406,24 @@ void Lista<T>::infoElem(int n)
     cout << "checando: " << aux->valor << endl;
     cout << "sig: " << aux->siguiente->valor << endl;
 
+}
+
+// ============= CLASES EXCEPCIONES ============= //
+template<typename T>
+Lista<T>::ListaVacia::ListaVacia() noexcept {}
+
+template<typename T>
+const char* Lista<T>::ListaVacia::what() const noexcept
+{
+    return "La lista se encuentra vac\241a, no se puede efectuar la operaci\242n.";
+}
+
+// =============================== //
+template<typename T>
+Lista<T>::IndiceExcedente::IndiceExcedente() noexcept {}
+
+template<typename T>
+const char* Lista<T>::IndiceExcedente::what() const noexcept
+{
+    return "El \241ndice sale de los l\241mites del n\240mero de elementos de la lista.";
 }

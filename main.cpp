@@ -25,7 +25,7 @@ int main()
         cout << "\nBorrando en indice 3\n";
         l.Eliminar(3);
         l.Imprimir();
-
+        l.ImprimirAlReves();
         cout << "El elemento en \'6\' hay: " << l.ObtenerElem(7) << endl;
 
         cout <<"Elemento en pos 2: " << l[2] << endl;
@@ -34,10 +34,38 @@ int main()
         l.EliminarCondicion(MenorOIgual<int>, 18);
         l.Imprimir();
 
+        Lista<int> l2;
 
+        l2.AgregarAlFinal(3);
+        l2.AgregarAlFinal(2);
+        l2.AgregarAlFinal(4);
+        l2.AgregarAlFinal(2);
+        l2.AgregarAlFinal(5);
+        l2.AgregarAlFinal(2);
+        l2.AgregarAlFinal(6);
+        l2.AgregarAlFinal(2);
+        l2.AgregarAlFinal(3);
+        cout << endl;
+        l2.Imprimir();
 
+        l2.EliminarOcurrenciaValor(2);
+        l2.EliminarOcurrenciaValor(3);
+        cout << endl;
+        l2.Imprimir();
 
+        l2.AgregarAlFinal(3);
+        l2.AgregarAlFinal(2);
+        l2.AgregarAlFinal(4);
+        l2.AgregarAlFinal(2);
+        l2.AgregarAlFinal(5);
+        l2.AgregarAlFinal(2);
+        l2.AgregarAlFinal(6);
+        l2.AgregarAlFinal(2);
+        l2.AgregarAlFinal(3);
 
+        l2.EliminarRepetidos();
+        cout << endl;
+        l2.Imprimir();
 
 
 
