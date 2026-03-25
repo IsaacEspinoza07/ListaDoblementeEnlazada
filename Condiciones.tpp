@@ -1,5 +1,5 @@
 
-
+// int, float, long double, double, unsigned, y así
 template<typename T>
 bool Mayor(T a, T b) { return a > b;}
 
@@ -18,15 +18,17 @@ bool Igual(T a, T b) { return a == b; }
 template<typename T>
 bool Distinto(T a, T b){ return a != b;}
 
-bool EsPar(int a) { return a%2 == 0;}
-
-bool EsImpar(int a) {return a%2 != 0;}
-
 template<typename T>
 bool EsPositivo(T a) { return a > 0; }
 
 template<typename T>
 bool EsNegativo(T a) { return a < 0; }
+
+
+// Solo Enteros.
+bool EsPar(int a) { return a%2 == 0;}
+
+bool EsImpar(int a) {return a%2 != 0;}
 
 bool EsPrimo(int a)
 {
@@ -38,5 +40,8 @@ bool EsPrimo(int a)
 
 }
 
-
-
+// Caracteres
+bool EsVocal(char a) {return a=='a' || a=='e' || a=='i' || a=='o' || a=='u';}
+bool EsMayuscula(char a) {return isupper(a);}
+bool EsMinuscula(char a) {return islower(a);}
+bool EsDigito(char a) { return isdigit(a);}

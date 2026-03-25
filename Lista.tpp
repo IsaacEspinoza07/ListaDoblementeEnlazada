@@ -417,18 +417,55 @@ int Lista<T>::BuscarPos(T valor)
     return -1;
 }
 
+// =============================== //
 
-// ============= PRUEBAS/DEBUG ============= //
 template<typename T>
-void Lista<T>::infoElem(int n)
+void Lista<T>::IntercambiarCon(Lista &l)
 {
-    Elemento *aux = primero;
-    for(int i = 0; i < n; ++i){
-        aux = aux->siguiente;
+    Elemento *aux = this->primero;
+    this->primero = l.primero;
+    l.primero = aux;
+
+    aux = ultimo;
+    this->ultimo = l.ultimo;
+    l.ultimo = aux;
+}
+
+// =============================== //
+template<typename T>
+void Lista<T>::TransferirElementos(Lista<T> l,int inicial, int fin)
+{
+    if (inicial < 0 || inicial >= num_elem) throw "\326ndice inicial fuera de rango";
+    if (fin < 0 || fin >= num_elem) throw "\326ndice final fuera de rango";
+
+    // lista 1: 1 3 5 7
+    // lista 2: 2 4 6 8
+
+    // 2.transf(1) = 1 3 5 7 2 4 6 8; esto sí inicial < fin.
+    // 2.transf(1) = 1 3 5 7 8 6 4 2; esto si fin < inicial.
+
+    if(inicial < fin){
+        Elemento *aux = primero;
+        for(int i = 0; i < fin; ++i) aux = aux->siguiente;
+        for(int i = fin; i > inicial; ++i){
+
+        }
     }
-    cout << "ant: " << aux->anterior->valor << endl;
-    cout << "checando: " << aux->valor << endl;
-    cout << "sig: " << aux->siguiente->valor << endl;
+
+}
+
+// =============================== //
+template<typename T>
+void TransferirElementos(int i)
+{
+
+
+}
+
+// =============================== //
+template<typename T>
+void TransferirElementos()
+{
 
 }
 

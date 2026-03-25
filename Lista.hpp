@@ -46,9 +46,9 @@
         - [x] Un eliminar que borre toda ocurrencia de un valor
         - [x] Un eliminar que borre todo elemento que cumpla cierta condicion
               (recibira un puntero a funcion obviously para la condicion)
-        - [x] Elimina todo elemento repetido (solo dejar una ocurrencia {no indica cual, tonses PREGUNTAR!!!})
+        - [x] Elimina todo elemento repetido (solo dejar una ocurrencia, la primera)
 
-    - [ ] Intercambiar una lista con otra (este tampoco... sepa la bola que sea, PREGUNTAR!!!!!!)
+    - [x] Intercambiar una lista con otra interacambiar los punteros.
     - [ ] Transferir elementos de una lista a otra:
         - [ ] Los elementos desde una posicion hasta otra posicion (o desde un índice a otro)
         - [ ] Los elementos a partir de cierta posicion (o índice)
@@ -96,13 +96,16 @@ public:
     void EliminarOcurrenciaValor(T valor);
     void EliminarCondicion(bool (*Condicion)(T, T),T b);
     void EliminarCondicion(bool (*Condicion)(T));
-
     void EliminarRepetidos();
 
+    // Otros
+    void IntercambiarCon(Lista &l);
+    void TransferirElementos(Lista<T> l, int i, int j); // Los que esten entre el indice i y el indice j.
+    void TransferirElementos(Lista<T> l, int i); // Desde el indice i hasta el final.
+    void TransferirElementos(Lista<T> l); // Transferir todos.
 
-    // PRUEBAS
-    void infoElem(int n);
 
+    // Excepcion de la clase
     class ListaVacia : public std::exception
     {
         public:
