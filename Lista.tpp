@@ -211,7 +211,7 @@ void Lista<T>::EliminarOcurrenciaValor(T valor)
 template<typename T>
 void Lista<T>::EliminarRepetidos()
 {
-    if(EstaVacia()) throw "La lista est\240 vac\241a.";
+    if(EstaVacia()) throw ListaVacia();
     Elemento *auxiliar = primero;
     int elemento_auxiliar = 0;
     while(auxiliar != nullptr){
@@ -238,7 +238,7 @@ void Lista<T>::EliminarRepetidos()
 template<typename T>
 void Lista<T>::EliminarCondicion(bool (*Condicion)(T, T), T b)
 {
-    if(EstaVacia()) throw "La lista est\242 vaci\241";
+    if(EstaVacia()) throw ListaVacia();
 
     Elemento *aux = primero;
     while(aux != nullptr){
@@ -259,7 +259,6 @@ void Lista<T>::EliminarCondicion(bool (*Condicion)(T, T), T b)
     }
 
 }
-
 
 // Eliminar pero para con nuevos métodos unarios
 template<typename T>

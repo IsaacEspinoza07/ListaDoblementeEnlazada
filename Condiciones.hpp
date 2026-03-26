@@ -1,5 +1,5 @@
 /**
- * \file  Menu.hpp
+ * \file  Condiciones.hpp
  * Se encuentra las funciones condicionales para el m&eacute;todo de eliminar con condici&oacute;n.
  * \author Angulo Gil, David Armando
         Espinoza Hern&aacute;ndez, Isaac

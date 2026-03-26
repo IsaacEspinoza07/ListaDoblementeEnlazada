@@ -1,4 +1,4 @@
-/** \file Lista.tpp
+/** \file Lista.hpp
  *  En este archivo se encuentran la implementaci&oacute;n de la clase 'Lista', con sus m&eacute;todos, estructuras y utilidades necesarias para su buena funci&oacute;n.
  *
  * \authors Angulo Gil, David Armando
@@ -103,11 +103,11 @@
               (recibira un puntero a funcion obviously para la condicion)
         - [x] Elimina todo elemento repetido (solo dejar una ocurrencia {no indica cual, tonses PREGUNTAR!!!})
 
-    - [ ] Intercambiar una lista con otra (este tampoco... sepa la bola que sea, PREGUNTAR!!!!!!)
-    - [ ] Transferir elementos de una lista a otra:
-        - [ ] Los elementos desde una posicion hasta otra posicion (o desde un índice a otro)
-        - [ ] Los elementos a partir de cierta posicion (o índice)
-        - [ ] Todos los elementos
+    - [x] Intercambiar una lista con otra (este tampoco... sepa la bola que sea, PREGUNTAR!!!!!!)
+    - [x] Transferir elementos de una lista a otra:
+        - [x] Los elementos desde una posicion hasta otra posicion (o desde un índice a otro)
+        - [x] Los elementos a partir de cierta posicion (o índice)
+        - [x] Todos los elementos
 */
 
 

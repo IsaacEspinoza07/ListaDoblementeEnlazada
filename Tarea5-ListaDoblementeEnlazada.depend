@@ -1,3 +1,4 @@
+<<<<<<< Updated upstream
 # depslib dependency file v1.0
 1774328033 source:/home/isaac07/Proyectos/cpp/Tarea5-ListaDoblementeEnlazada/main.cpp
 	<iostream>
@@ -51,3 +52,41 @@
 	<iostream>
 	<limits>
 
+=======
+# depslib dependency file v1.0
+1774497005 source:/home/isaac07/Proyectos/cpp/Tarea5-ListaDoblementeEnlazada/main.cpp
+	<iostream>
+	"Lista.hpp"
+	"Menu.hpp"
+
+1774490858 /home/isaac07/Proyectos/cpp/Tarea5-ListaDoblementeEnlazada/Lista.hpp
+	"Lista.tpp"
+
+1774492675 /home/isaac07/Proyectos/cpp/Tarea5-ListaDoblementeEnlazada/Lista.tpp
+	<iostream>
+	<exception>
+	"Lista.hpp"
+	"Condiciones.hpp"
+
+1774452484 /home/isaac07/Proyectos/cpp/Tarea5-ListaDoblementeEnlazada/Condiciones.hpp
+	"Condiciones.tpp"
+
+1774493986 /home/isaac07/Proyectos/cpp/Tarea5-ListaDoblementeEnlazada/Condiciones.tpp
+
+1774496602 source:/home/isaac07/Proyectos/cpp/Tarea5-ListaDoblementeEnlazada/Menu.cpp
+	<iostream>
+	"Menu.hpp"
+	"Condiciones.hpp"
+
+1774493242 /home/isaac07/Proyectos/cpp/Tarea5-ListaDoblementeEnlazada/Menu.hpp
+	"Lista.hpp"
+	"CapturaSegura.hpp"
+
+1770789515 /home/isaac07/Proyectos/cpp/Tarea5-ListaDoblementeEnlazada/CapturaSegura.hpp
+	"CapturaSegura.tpp"
+
+1770789516 /home/isaac07/Proyectos/cpp/Tarea5-ListaDoblementeEnlazada/CapturaSegura.tpp
+	<iostream>
+	<limits>
+
+>>>>>>> Stashed changes

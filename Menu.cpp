@@ -31,10 +31,10 @@ void ImprimirEstado(Lista<int> &l, const char* nombre)
 {
     cout << nombre << ": ";
     if(l.EstaVacia())
-        cout << "Vacia...";
+        cout << "Vacia...\n";
     else
         l.Imprimir();
-    cout << "  (num_elem=" << l.ObtenerTam() << ")\n";
+    cout << "(num_elem=" << l.ObtenerTam() << ")\n";
 }
 
 // Esta perron mandar cosas al preprocesador. los \ son pa decir que hay otra linea abajo
@@ -55,22 +55,27 @@ void ImprimirEstado(Lista<int> &l, const char* nombre)
 void MenuAgregar(Lista<int> &l)
 {
     int op, val, idx;
-    CapturaSegura(op,
-        "\n-- AGREGAR --\n"
-        "1. Al principio\n"
-        "2. Al final\n"
-        "3. En indice\n"
-        "Opcion: ");
-    CapturaSegura(val, "Valor: ");
+    cout << "\n-- AGREGAR --\n1. Al principio\n2. Al final\n3. En indice\n";
+    do{
+        CapturaSegura(op,"Opcion: ");
+    }while(op<1 || op>3);
 
     try{
         switch(op){
-            case 1: l.AgregarAlPrincipio(val); break;
-            case 2: l.AgregarAlFinal(val);     break;
+            case 1:
+                CapturaSegura(val, "Valor: ");
+                l.AgregarAlPrincipio(val);
+                break;
+            case 2:
+                CapturaSegura(val, "Valor: ");
+                l.AgregarAlFinal(val);
+                break;
             case 3:
                 CapturaSegura(idx, "Indice: ");
+                CapturaSegura(val, "Valor: ");
                 l.Agregar(val, idx);
                 break;
+
             default: cout << "Opcion invalida.\n"; return;
         }
         cout << "Listo.\n";
@@ -83,17 +88,18 @@ void MenuAgregar(Lista<int> &l)
 void MenuEliminar(Lista<int> &l)
 {
     int op;
-    CapturaSegura(op,
-        "\n-- ELIMINAR --\n"
-        "1. Al principio\n"
-        "2. Al final\n"
-        "3. En indice\n"
-        "4. Todas las ocurrencias de un valor\n"
-        "5. Por condicion binaria (Mayor que X)\n"
-        "6. Por condicion unaria (EsPar)\n"
-        "7. Repetidos\n"
-        "8. Vaciar\n"
-        "Opcion: ");
+    cout << "\n-- ELIMINAR --\n"
+            "1. Al principio\n"
+            "2. Al final\n"
+            "3. En indice\n"
+            "4. Todas las ocurrencias de un valor\n"
+            "5. Por condicion binaria (Mayor que X)\n"
+            "6. Por condicion unaria (EsPar)\n"
+            "7. Repetidos\n"
+            "8. Vaciar\n";
+    do{
+        CapturaSegura(op, "Opcion: ");
+    }while(op<1 || op>8);
 
     try{
         switch(op){
@@ -129,7 +135,6 @@ void MenuEliminar(Lista<int> &l)
                 l.Vaciar();
                 cout << "Lista vaciada.\n";
                 break;
-            default: cout << "Opcion invalida.\n"; return;
         }
     }
     CATCH_LISTA
@@ -140,16 +145,17 @@ void MenuEliminar(Lista<int> &l)
 void MenuObtener(Lista<int> &l)
 {
     int op;
-    CapturaSegura(op,
-        "\n-- OBTENER / BUSCAR --\n"
-        "1. Primer elemento\n"
-        "2. Ultimo elemento\n"
-        "3. Elemento en indice\n"
-        "4. Esta un valor?\n"
-        "5. Posicion de un valor\n"
-        "6. Leer con []\n"
-        "7. Escribir con []\n"
-        "Opcion: ");
+    cout << "\n-- OBTENER / BUSCAR --\n"
+            "1. Primer elemento\n"
+            "2. Ultimo elemento\n"
+            "3. Elemento en indice\n"
+            "4. Esta un valor?\n"
+            "5. Posicion de un valor\n"
+            "6. Leer con []\n"
+            "7. Escribir con []\n";
+    do{
+        CapturaSegura(op, "Opcion: ");
+    }while(op<1 || op>7);
 
     try{
         switch(op){
@@ -185,7 +191,6 @@ void MenuObtener(Lista<int> &l)
                 cout << "Actualizado.\n";
                 break;
             }
-            default: cout << "Opcion invalida.\n"; return;
         }
     }
     CATCH_LISTA
@@ -198,16 +203,16 @@ void MenuImprimir(Lista<int> &l)
     if(l.EstaVacia()){ cout << "Lista vacia.\n"; return; }
 
     int op;
-    CapturaSegura(op,
-        "\n-- IMPRIMIR --\n"
-        "1. Izquierda a derecha\n"
-        "2. Derecha a izquierda\n"
-        "Opcion: ");
+    cout << "\n-- IMPRIMIR --\n"
+            "1. Izquierda a derecha\n"
+            "2. Derecha a izquierda\n";
+    do{
+        CapturaSegura(op, "Opcion: ");
+    }while(op<1 || op>2);
 
     switch(op){
         case 1: l.Imprimir();        break;
         case 2: l.ImprimirAlReves(); break;
-        default: cout << "Opcion invalida.\n";
     }
 }
 
@@ -216,12 +221,13 @@ void MenuImprimir(Lista<int> &l)
 void MenuTransferir(Lista<int> &l1, Lista<int> &l2)
 {
     int op;
-    CapturaSegura(op,
-        "\n-- TRANSFERIR (L1 -> L2) --\n"
-        "1. De indice i a indice j\n"
-        "2. Desde indice i hasta el final\n"
-        "3. Todos\n"
-        "Opcion: ");
+    cout << "\n-- TRANSFERIR (L1 -> L2) --\n"
+            "1. De indice i a indice j\n"
+            "2. Desde indice i hasta el final\n"
+            "3. Todos\n";
+    do{
+        CapturaSegura(op, "Opcion: ");
+    }while(op<1 || op>3);
 
     try{
         switch(op){
@@ -240,7 +246,6 @@ void MenuTransferir(Lista<int> &l1, Lista<int> &l2)
             case 3:
                 l1.TransferirElementos(l2);
                 break;
-            default: cout << "Opcion invalida.\n"; return;
         }
         cout << "Transferencia completa.\n";
     }
