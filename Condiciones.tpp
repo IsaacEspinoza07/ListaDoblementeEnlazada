@@ -1,5 +1,5 @@
 
-// int, float, long double, double, unsigned, y asÃ­
+// int, float, long double, double, unsigned, y así
 template<typename T>
 bool Mayor(T a, T b) { return a > b;}
 
@@ -28,7 +28,7 @@ bool EsNegativo(T a) { return a < 0; }
 
 // IMPORTANTEE!!!! inline porque si no el c++ protesta porque
 //no son templates en un archivo .tpp, pero pa no tener dos Condiciones.algo
-// mÃ¡s facil nomas inline y ya, pa no andar batallando. y como los demÃ¡s si
+// más facil nomas inline y ya, pa no andar batallando. y como los demás si
 // sirven para float double etc, pues ya, asi mero aguanta.
 
 // Solo Enteros.

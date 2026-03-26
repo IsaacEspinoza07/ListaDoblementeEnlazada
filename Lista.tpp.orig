@@ -134,7 +134,6 @@ void Lista<T>::EliminarAlPrincipio()
     }else{
         Elemento *aux = primero;
         primero = primero->siguiente;
-        primero->anterior = nullptr;
         delete aux;
     }
     --num_elem;
@@ -152,7 +151,6 @@ void Lista<T>::EliminarAlFinal()
     }else {
         Elemento *aux = ultimo;
         ultimo = ultimo->anterior;
-        ultimo->siguiente = nullptr;
         delete aux;
     }
     --num_elem;
@@ -209,9 +207,35 @@ void Lista<T>::EliminarOcurrenciaValor(T valor)
 
 // =============================== //
 template<typename T>
+void Lista<T>::EliminarCondicion(bool (*Condicion)(T, T), T b)
+{
+    if(EstaVacia()) throw "La lista est\242 vaci\241";
+
+    Elemento *aux = primero;
+    while(aux != nullptr){
+        Elemento *siguiente = aux->siguiente;
+
+        if(Condicion(aux->valor,b)){
+            if(aux == primero) EliminarAlPrincipio();
+            else if(aux == ultimo) EliminarAlFinal();
+            else{
+                aux->anterior->siguiente = aux->siguiente;
+                aux->siguiente->anterior = aux->anterior;
+                delete aux;
+                --num_elem;
+            }
+
+        }
+        aux = siguiente;
+    }
+
+}
+
+// =============================== //
+template<typename T>
 void Lista<T>::EliminarRepetidos()
 {
-    if(EstaVacia()) throw "La lista est\240 vac\241a.";
+    if(EstaVacia()) throw ListaVacia();
     Elemento *auxiliar = primero;
     int elemento_auxiliar = 0;
     while(auxiliar != nullptr){
@@ -232,6 +256,7 @@ void Lista<T>::EliminarRepetidos()
         ++elemento_auxiliar;
     }
 
+<<<<<<< HEAD
 }
 
 // =============================== //
@@ -260,8 +285,7 @@ void Lista<T>::EliminarCondicion(bool (*Condicion)(T, T), T b)
 
 }
 
-
-// Eliminar pero para con nuevos métodos unarios
+// Sobrecargar pa hacer cosas bien perronas
 template<typename T>
 void Lista<T>::EliminarCondicion(bool (*Condicion)(T))
 {
@@ -269,7 +293,7 @@ void Lista<T>::EliminarCondicion(bool (*Condicion)(T))
     while(aux != nullptr){
         Elemento *siguiente = aux->siguiente;
         if(Condicion(aux->valor)){
-            if(aux == primero)     EliminarAlPrincipio();
+            if(aux == primero) EliminarAlPrincipio();
             else if(aux == ultimo) EliminarAlFinal();
             else{
                 aux->anterior->siguiente = aux->siguiente;
@@ -277,9 +301,13 @@ void Lista<T>::EliminarCondicion(bool (*Condicion)(T))
                 delete aux;
                 --num_elem;
             }
+
         }
         aux = siguiente;
     }
+
+=======
+>>>>>>> b6607b9f72b609d0672739439bbe3479dcb89397
 }
 
 // =============================== //
@@ -417,60 +445,19 @@ int Lista<T>::BuscarPos(T valor)
     return -1;
 }
 
-// =============================== //
 
+// ============= PRUEBAS/DEBUG ============= //
 template<typename T>
-void Lista<T>::IntercambiarCon(Lista &l)
+void Lista<T>::infoElem(int n)
 {
-    Elemento *aux = this->primero;
-    this->primero = l.primero;
-    l.primero = aux;
-
-    aux = ultimo;
-    this->ultimo = l.ultimo;
-    l.ultimo = aux;
-
-    int tam = this->num_elem;
-    this->num_elem = l.num_elem;
-    l.num_elem = tam;
-}
-
-// =============================== //
-template<typename T>
-void Lista<T>::TransferirElementos(Lista<T> &l,int i, int j)
-{
-    if(EstaVacia()) throw ListaVacia();
-    if (i < 0 || i >= num_elem) throw IndiceExcedente();
-    if (j < 0 || j >= num_elem) throw IndiceExcedente();
-    if (i > j) throw IndiceExcedente();
-
-
-    // me voy a 'i' primero
     Elemento *aux = primero;
-    for(int k = 0; k < i; ++k){
+    for(int i = 0; i < n; ++i){
         aux = aux->siguiente;
     }
+    cout << "ant: " << aux->anterior->valor << endl;
+    cout << "checando: " << aux->valor << endl;
+    cout << "sig: " << aux->siguiente->valor << endl;
 
-    // ahora los voy metiendo.
-    for(int k = 0; k < j-i+1; ++k){
-        l.AgregarAlFinal(aux->valor);
-        aux = aux->siguiente;
-        Eliminar(i); // pues se actualizan los indices, y el 'i+i pasa a ser 'i'.
-    }
-}
-
-// =============================== //
-template<typename T>
-void Lista<T>::TransferirElementos(Lista<T> &l, int i)
-{
-    TransferirElementos(l,i,num_elem-1);
-}
-
-// =============================== //
-template<typename T>
-void Lista<T>::TransferirElementos(Lista<T> &l)
-{
-    TransferirElementos(l,0,num_elem-1);
 }
 
 // ============= CLASES EXCEPCIONES ============= //
