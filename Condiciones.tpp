@@ -25,12 +25,16 @@ template<typename T>
 bool EsNegativo(T a) { return a < 0; }
 
 
+
+// IMPORTANTEE!!!! inline porque si no el c++ protesta porque
+//no son templates en un archivo .tpp, pero pa no tener dos Condiciones.algo
+// más facil nomas inline y ya, pa no andar batallando. y como los demás si
+// sirven para float double etc, pues ya, asi mero aguanta.
+
 // Solo Enteros.
-bool EsPar(int a) { return a%2 == 0;}
-
-bool EsImpar(int a) {return a%2 != 0;}
-
-bool EsPrimo(int a)
+inline bool EsPar(int a) { return a%2 == 0;}
+inline bool EsImpar(int a) {return a%2 != 0;}
+inline bool EsPrimo(int a)
 {
     if( a < 2) return false;
     for(int i = 2; i*i <= a; ++i){
@@ -39,9 +43,8 @@ bool EsPrimo(int a)
     return true;
 
 }
-
 // Caracteres
-bool EsVocal(char a) {return a=='a' || a=='e' || a=='i' || a=='o' || a=='u';}
-bool EsMayuscula(char a) {return isupper(a);}
-bool EsMinuscula(char a) {return islower(a);}
-bool EsDigito(char a) { return isdigit(a);}
+inline bool EsVocal(char a) {return a=='a' || a=='e' || a=='i' || a=='o' || a=='u';}
+inline bool EsMayuscula(char a) {return isupper(a);}
+inline bool EsMinuscula(char a) {return islower(a);}
+inline bool EsDigito(char a) { return isdigit(a);}

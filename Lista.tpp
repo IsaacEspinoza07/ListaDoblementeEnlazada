@@ -127,6 +127,7 @@ template<typename T>
 void Lista<T>::EliminarAlPrincipio()
 {
     if(EstaVacia()) throw ListaVacia();
+
     if(num_elem == 1){
         delete primero;
         primero = nullptr;
@@ -145,6 +146,7 @@ template<typename T>
 void Lista<T>::EliminarAlFinal()
 {
     if(EstaVacia()) throw ListaVacia();
+
     if(num_elem == 1){
         delete ultimo;
         primero = nullptr;
@@ -163,6 +165,7 @@ template<typename T>
 void Lista<T>::Eliminar(int indice)
 {
     if(EstaVacia()) throw ListaVacia();
+
     if(indice < 0 || indice >= num_elem) throw IndiceExcedente();
 
     if(indice == 0) EliminarAlPrincipio();
@@ -193,6 +196,7 @@ template<typename T>
 void Lista<T>::EliminarOcurrenciaValor(T valor)
 {
     if(EstaVacia()) throw ListaVacia();
+
     Elemento *aux = primero;
     int elemento_encontrado = 0;
     while(aux != nullptr){
@@ -211,7 +215,8 @@ void Lista<T>::EliminarOcurrenciaValor(T valor)
 template<typename T>
 void Lista<T>::EliminarRepetidos()
 {
-    if(EstaVacia()) throw "La lista est\240 vac\241a.";
+    if(EstaVacia()) throw ListaVacia();
+
     Elemento *auxiliar = primero;
     int elemento_auxiliar = 0;
     while(auxiliar != nullptr){
@@ -238,7 +243,7 @@ void Lista<T>::EliminarRepetidos()
 template<typename T>
 void Lista<T>::EliminarCondicion(bool (*Condicion)(T, T), T b)
 {
-    if(EstaVacia()) throw "La lista est\242 vaci\241";
+    if(EstaVacia()) throw ListaVacia();
 
     Elemento *aux = primero;
     while(aux != nullptr){
@@ -265,6 +270,8 @@ void Lista<T>::EliminarCondicion(bool (*Condicion)(T, T), T b)
 template<typename T>
 void Lista<T>::EliminarCondicion(bool (*Condicion)(T))
 {
+    if(EstaVacia()) throw ListaVacia();
+
     Elemento *aux = primero;
     while(aux != nullptr){
         Elemento *siguiente = aux->siguiente;
@@ -296,7 +303,7 @@ void Lista<T>::Vaciar()
 template<typename T>
 bool Lista<T>::EstaVacia()
 {
-    return (num_elem == 0) ? true : false;
+    return num_elem == 0;
 
 }
 
@@ -429,15 +436,21 @@ void Lista<T>::IntercambiarCon(Lista &l)
     aux = ultimo;
     this->ultimo = l.ultimo;
     l.ultimo = aux;
+
+    int tam = this->num_elem;
+    this->num_elem = l.num_elem;
+    l.num_elem = tam;
 }
 
 // =============================== //
 template<typename T>
 void Lista<T>::TransferirElementos(Lista<T> &l,int i, int j)
 {
+    if(EstaVacia()) throw ListaVacia();
     if (i < 0 || i >= num_elem) throw IndiceExcedente();
     if (j < 0 || j >= num_elem) throw IndiceExcedente();
     if (i > j) throw IndiceExcedente();
+
 
     // me voy a 'i' primero
     Elemento *aux = primero;

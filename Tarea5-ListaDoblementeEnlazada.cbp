@@ -32,10 +32,14 @@
 			<Add option="-Wall" />
 			<Add option="-fexceptions" />
 		</Compiler>
+		<Unit filename="CapturaSegura.hpp" />
+		<Unit filename="CapturaSegura.tpp" />
 		<Unit filename="Condiciones.hpp" />
 		<Unit filename="Condiciones.tpp" />
 		<Unit filename="Lista.hpp" />
 		<Unit filename="Lista.tpp" />
+		<Unit filename="Menu.cpp" />
+		<Unit filename="Menu.hpp" />
 		<Unit filename="main.cpp" />
 		<Extensions />
 	</Project>

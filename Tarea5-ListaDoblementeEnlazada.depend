@@ -1,12 +1,12 @@
 # depslib dependency file v1.0
-1774490794 source:/home/isaac07/Proyectos/cpp/Tarea5-ListaDoblementeEnlazada/main.cpp
+1774492693 source:/home/isaac07/Proyectos/cpp/Tarea5-ListaDoblementeEnlazada/main.cpp
 	<iostream>
 	"Lista.hpp"
 
-1774490701 /home/isaac07/Proyectos/cpp/Tarea5-ListaDoblementeEnlazada/Lista.hpp
+1774490858 /home/isaac07/Proyectos/cpp/Tarea5-ListaDoblementeEnlazada/Lista.hpp
 	"Lista.tpp"
 
-1774490804 /home/isaac07/Proyectos/cpp/Tarea5-ListaDoblementeEnlazada/Lista.tpp
+1774492675 /home/isaac07/Proyectos/cpp/Tarea5-ListaDoblementeEnlazada/Lista.tpp
 	<iostream>
 	<exception>
 	"Lista.hpp"
@@ -15,5 +15,21 @@
 1774452484 /home/isaac07/Proyectos/cpp/Tarea5-ListaDoblementeEnlazada/Condiciones.hpp
 	"Condiciones.tpp"
 
-1774452475 /home/isaac07/Proyectos/cpp/Tarea5-ListaDoblementeEnlazada/Condiciones.tpp
+1774493986 /home/isaac07/Proyectos/cpp/Tarea5-ListaDoblementeEnlazada/Condiciones.tpp
+
+1774493698 source:/home/isaac07/Proyectos/cpp/Tarea5-ListaDoblementeEnlazada/Menu.cpp
+	<iostream>
+	"Menu.hpp"
+	"Condiciones.hpp"
+
+1774493242 /home/isaac07/Proyectos/cpp/Tarea5-ListaDoblementeEnlazada/Menu.hpp
+	"Lista.hpp"
+	"CapturaSegura.hpp"
+
+1770789515 /home/isaac07/Proyectos/cpp/Tarea5-ListaDoblementeEnlazada/CapturaSegura.hpp
+	"CapturaSegura.tpp"
+
+1770789516 /home/isaac07/Proyectos/cpp/Tarea5-ListaDoblementeEnlazada/CapturaSegura.tpp
+	<iostream>
+	<limits>
 
