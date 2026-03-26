@@ -49,10 +49,10 @@
         - [x] Elimina todo elemento repetido (solo dejar una ocurrencia, la primera)
 
     - [x] Intercambiar una lista con otra interacambiar los punteros.
-    - [ ] Transferir elementos de una lista a otra:
-        - [ ] Los elementos desde una posicion hasta otra posicion (o desde un índice a otro)
-        - [ ] Los elementos a partir de cierta posicion (o índice)
-        - [ ] Todos los elementos
+    - [x] Transferir elementos de una lista a otra:
+        - [x] Los elementos desde una posicion hasta otra posicion (o desde un índice a otro)
+        - [x] Los elementos a partir de cierta posicion (o índice)
+        - [x] Todos los elementos (transplante de lista)
 */
 
 
@@ -100,9 +100,9 @@ public:
 
     // Otros
     void IntercambiarCon(Lista &l);
-    void TransferirElementos(Lista<T> l, int i, int j); // Los que esten entre el indice i y el indice j.
-    void TransferirElementos(Lista<T> l, int i); // Desde el indice i hasta el final.
-    void TransferirElementos(Lista<T> l); // Transferir todos.
+    void TransferirElementos(Lista<T> &l, int i, int j); // Los que esten entre el indice i y el indice j.
+    void TransferirElementos(Lista<T> &l, int i); // Desde el indice i hasta el final.
+    void TransferirElementos(Lista<T> &l); // Transferir todos.
 
 
     // Excepcion de la clase

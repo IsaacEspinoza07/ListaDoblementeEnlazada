@@ -433,40 +433,38 @@ void Lista<T>::IntercambiarCon(Lista &l)
 
 // =============================== //
 template<typename T>
-void Lista<T>::TransferirElementos(Lista<T> l,int inicial, int fin)
+void Lista<T>::TransferirElementos(Lista<T> &l,int i, int j)
 {
-    if (inicial < 0 || inicial >= num_elem) throw "\326ndice inicial fuera de rango";
-    if (fin < 0 || fin >= num_elem) throw "\326ndice final fuera de rango";
+    if (i < 0 || i >= num_elem) throw IndiceExcedente();
+    if (j < 0 || j >= num_elem) throw IndiceExcedente();
+    if (i > j) throw IndiceExcedente();
 
-    // lista 1: 1 3 5 7
-    // lista 2: 2 4 6 8
-
-    // 2.transf(1) = 1 3 5 7 2 4 6 8; esto sí inicial < fin.
-    // 2.transf(1) = 1 3 5 7 8 6 4 2; esto si fin < inicial.
-
-    if(inicial < fin){
-        Elemento *aux = primero;
-        for(int i = 0; i < fin; ++i) aux = aux->siguiente;
-        for(int i = fin; i > inicial; ++i){
-
-        }
+    // me voy a 'i' primero
+    Elemento *aux = primero;
+    for(int k = 0; k < i; ++k){
+        aux = aux->siguiente;
     }
 
+    // ahora los voy metiendo.
+    for(int k = 0; k < j-i+1; ++k){
+        l.AgregarAlFinal(aux->valor);
+        aux = aux->siguiente;
+        Eliminar(i); // pues se actualizan los indices, y el 'i+i pasa a ser 'i'.
+    }
 }
 
 // =============================== //
 template<typename T>
-void TransferirElementos(int i)
+void Lista<T>::TransferirElementos(Lista<T> &l, int i)
 {
-
-
+    TransferirElementos(l,i,num_elem-1);
 }
 
 // =============================== //
 template<typename T>
-void TransferirElementos()
+void Lista<T>::TransferirElementos(Lista<T> &l)
 {
-
+    TransferirElementos(l,0,num_elem-1);
 }
 
 // ============= CLASES EXCEPCIONES ============= //
